@@ -5,11 +5,11 @@ terraform {
             version = "3.73.0"
         }
     }
-    backend "azurerm"   {
-        resource_group_name = "nhhsabet"
-        storage_account_name = "nhhsawebln8r1jn2"
-        container_name = "$web"
-        key = "web.terraform.nhhtfstate"
+    backend "azurerm" {
+      resource_group_name = "nhhsabetw4ij32"
+      storage_account_name = "nhhsaweb4nwyn734kw"
+      container_name = "$web"
+      key = "nhh-web-demo.terraform.tfstate"
     }
 }
 
