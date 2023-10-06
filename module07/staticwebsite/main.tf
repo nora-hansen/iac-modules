@@ -13,12 +13,12 @@ resource "random_string" "random_string"    {
 }
 
 resource "azurerm_resource_group" "rg_web"  {
-    name = local.rg_name
+    name = var.rg_name
     location = var.location
 }
 
 resource "azurerm_storage_account" "sa_web" {
-    name                = local.sa_name
+    name                = var.sa_name
     resource_group_name = azurerm_resource_group.rg_web.name
     location            = azurerm_resource_group.rg_web.location
     account_tier        = "Standard"

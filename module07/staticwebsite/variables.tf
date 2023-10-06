@@ -1,12 +1,12 @@
 variable "rg_name"  {
     type = string
-    default = "nhhsabet"
+    default = "nhhsabetw4ij32"
     description = "Resource Group name"
 }
 
 variable "sa_name"  {
     type = string
-    default = "nhhsaweb"
+    default = "nhhsawebu4tt6qyh8l"
     description = "Storage Account name"
 }
 
