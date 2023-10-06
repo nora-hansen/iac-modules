@@ -13,7 +13,7 @@ resource "random_string" "random_string"    {
 }
 
 resource "azurerm_resource_group" "nhh_rg_web"  {
-    name = local.rg_name
+    name     = local.rg_name
     location = var.rg_location
 }
 
@@ -22,7 +22,7 @@ resource "azurerm_storage_account" "sa_web" {
     resource_group_name = azurerm_resource_group.nhh_rg_web.name
     location            = azurerm_resource_group.nhh_rg_web.location
     account_tier        = "Standard"
-    account_replication_type = "GRS"
+    account_replication_type = "LRS"
 
     static_website  {
         index_document = var.index_document
@@ -30,7 +30,7 @@ resource "azurerm_storage_account" "sa_web" {
 }
 
 resource "azurerm_storage_blob" "index_html"    {
-    name = var.index_document
+    name                    = var.index_document
     storage_account_name    = azurerm_storage_account.sa_web.name
     storage_container_name  = "$web"
     type                    = "Block"

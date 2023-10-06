@@ -7,9 +7,9 @@ terraform {
     }
     backend "azurerm" {
       resource_group_name = "nhhsabetw4ij32"
-      storage_account_name = "nhhsaweb3rc0m4fzkl"
+      storage_account_name = "nhhsaweb0kjld39bfw"
       container_name = "$web"
-      key = "nhh-web-demo.terraform.tfstate"
+      key = "nhh-web.terraform.tfstate"
     }
 }
 
