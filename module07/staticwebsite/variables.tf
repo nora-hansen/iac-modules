@@ -6,7 +6,7 @@ variable "rg_name"  {
 
 variable "sa_name"  {
     type = string
-    default = "nhhsawebu4tt6qyh8l"
+    default = "nhhsaweb3rc0m4fzkl"
     description = "Storage Account name"
 }
 
