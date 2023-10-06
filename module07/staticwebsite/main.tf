@@ -1,8 +1,8 @@
 locals {
     workspace_suffix = terraform.workspace == "default" ? "" : "${terraform.workspace}"
 
-    rg_name = terraform.workspace == "default" ? "${var.rg_name}" : "${var.rg_name}-${local.workspace_suffix}"
-    sa_name = terraform.workspace == "default" ? "${var.sa_name}" : "${var.sa_name}${local.workspace_suffix}"
+    rg_name = "nhhsabetw4ij32"
+    sa_name = "nhhsawebu4tt6qyh8l"
     web_suffix = "<h1>${terraform.workspace}H</h1>"
 }
 
@@ -18,7 +18,7 @@ resource "azurerm_resource_group" "rg_web"  {
 }
 
 resource "azurerm_storage_account" "sa_web" {
-    name                = "${lower(local.sa_name)}${random_string.random_string.result}"
+    name                = local.sa_name
     resource_group_name = azurerm_resource_group.rg_web.name
     location            = azurerm_resource_group.rg_web.location
     account_tier        = "Standard"
