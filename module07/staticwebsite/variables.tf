@@ -10,7 +10,7 @@ variable "sa_name"  {
     description = "Storage Account name"
 }
 
-variable "location" {
+variable "rg_location" {
     type = string
     default = "westeurope"
     description = "Location"
