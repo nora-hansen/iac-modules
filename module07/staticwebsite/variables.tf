@@ -24,6 +24,6 @@ variable "index_document"   {
 
 variable "source_content"   {
     type = string
-    default = "<h1>Web page created with Terraform!! Omg</h1><p>hi</p>"
+    default = "<h1>Web page created with Terraform - Very cool update del 1</h1><p>hi</p>"
     description = "Content of webpage"
 }
