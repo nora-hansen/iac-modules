@@ -9,8 +9,7 @@ resource "random_string" "random" {
   upper            = false
 }
 
-# Dang :)
-resource "azurerm_storage_account" "example" {
+resource "azurerm_storage_account" "nhh-sa" {
   name                     = "nhh${local.sa_name}${random_string.random.result}"
   resource_group_name      = azurerm_resource_group.nhh-rg.name
   location                 = azurerm_resource_group.nhh-rg.location
@@ -20,4 +19,8 @@ resource "azurerm_storage_account" "example" {
   tags = {
     environment = terraform.workspace
   }
+}
+
+output "saname" {
+  value = azurerm_storage_account.nhh-sa.name
 }
