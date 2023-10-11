@@ -6,6 +6,7 @@ locals {
     web_suffix = "<h1>${terraform.workspace}H</h1>"
 }
 
+# Sorry :)
 resource "random_string" "random_string"    {
     length = 8
     special = false

@@ -9,6 +9,7 @@ resource "random_string" "random" {
   upper            = false
 }
 
+# Dang :)
 resource "azurerm_storage_account" "example" {
   name                     = "nhh${local.sa_name}${random_string.random.result}"
   resource_group_name      = azurerm_resource_group.nhh-rg.name
