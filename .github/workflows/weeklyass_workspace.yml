@@ -34,6 +34,14 @@ jobs:
       - name: 'Terraform apply dev'
         run: terraform apply -auto-approve -var="vm-username=${{ env.VM_USERNAME }}" -var="vm-password=${{ env.VM_PASSWORD }}"
         working-directory: ${{ env.WORKING_DIR }}
+
+      - name: 'Terraform format dev'
+        run: terraform fmt -check
+        working-directory: ${{ env.WORKING_DIR }}
+
+      - name: 'Terraform Validate dev'
+        run: terraform init -backend=false && terraform validate
+        working-directory: ${{ env.WORKING_DIR }}
         
   stage_prod:
     needs: dev_stage
@@ -53,6 +61,14 @@ jobs:
     
       - name: 'Terraform apply stage'
         run: terraform apply -auto-approve -var="vm-username=${{ env.VM_USERNAME }}" -var="vm-password=${{ env.VM_PASSWORD }}"
+        working-directory: ${{ env.WORKING_DIR }}
+
+      - name: 'Terraform format stage'
+        run: terraform fmt -check
+        working-directory: ${{ env.WORKING_DIR }}
+
+      - name: 'Terraform Validate stage'
+        run: terraform init -backend=false && terraform validate
         working-directory: ${{ env.WORKING_DIR }}
 
   prod:
@@ -76,4 +92,12 @@ jobs:
     
       - name: 'Terraform apply prod'
         run: terraform apply -auto-approve -var="vm-username=${{ env.VM_USERNAME }}" -var="vm-password=${{ env.VM_PASSWORD }}"
+        working-directory: ${{ env.WORKING_DIR }}
+        
+      - name: 'Terraform format prod'
+        run: terraform fmt -check
+        working-directory: ${{ env.WORKING_DIR }}
+
+      - name: 'Terraform Validate prod'
+        run: terraform init -backend=false && terraform validate
         working-directory: ${{ env.WORKING_DIR }}
