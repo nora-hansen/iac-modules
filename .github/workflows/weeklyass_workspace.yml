@@ -52,7 +52,7 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
     
       - name: 'Terraform apply stage'
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="vm-username=${{ env.VM_USERNAME }}" -var="vm-password=${{ env.VM_PASSWORD }}"
         working-directory: ${{ env.WORKING_DIR }}
 
   prod:
@@ -75,5 +75,5 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
     
       - name: 'Terraform apply prod'
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="vm-username=${{ env.VM_USERNAME }}" -var="vm-password=${{ env.VM_PASSWORD }}"
         working-directory: ${{ env.WORKING_DIR }}
