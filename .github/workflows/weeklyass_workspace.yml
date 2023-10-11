@@ -11,6 +11,8 @@ env:
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+  VM_USERNAME: ${{ variables.VM_USERNAME }}
+  VM_PASSWORD: ${{ secrets.VM_PASSWORD }}
   WORKING_DIR: ./module07/weeklyass
 
 jobs:
@@ -30,7 +32,7 @@ jobs:
         working-directory: ${{ env.WORKING_DIR }}
     
       - name: 'Terraform apply dev'
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="vm-username=${{ env.VM_USERNAME }}" -var="vm-password=${{ env.VM_PASSWORD }}"
         working-directory: ${{ env.WORKING_DIR }}
         
   stage_prod:
