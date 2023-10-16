@@ -10,7 +10,7 @@ module "KeyVaultModule" {
 
 module "NetworkModule" {
   source      = "./NetworkModule"
-  vm-pip      = module.VirtualMachineModule.vm_public_ip_output
+  vm-pip      = "22"
   base-name   = var.base-name
   location    = var.location
   env         = terraform.workspace
