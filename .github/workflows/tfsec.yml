@@ -1,0 +1,32 @@
+name: terraform security check
+
+on:
+  workflow_run:
+    workflows: ["validate"]
+    types: 
+        - completed
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    name: 'security check'
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      VM_USERNAME: ${{ vars.VM_USERNAME }}
+      VM_PASSWORD: ${{ secrets.VM_PASSWORD }}
+      WORKING_DIR: ./module07/weeklyass
+      
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+        
+      - name: 'tfsec'
+        uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          working_directory: ${{ env.WORKING_DIR }}
+          github_token: ${{ env.GITHUB_TOKEN }}
