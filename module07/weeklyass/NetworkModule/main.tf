@@ -21,7 +21,7 @@ resource "azurerm_network_security_group" "nhhotasnsg" {
     direction                  = var.security-direction
     access                     = var.security-access
     protocol                   = var.security-protocol
-    source_port_range          = "*"
+    source_port_range          = "22"
     destination_port_range     = "*"
     source_address_prefix      = var.vm-pip
     destination_address_prefix = "*"
