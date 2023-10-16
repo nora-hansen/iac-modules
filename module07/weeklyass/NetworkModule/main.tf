@@ -15,17 +15,6 @@ resource "azurerm_network_security_group" "nhhotasnsg" {
   location            = azurerm_resource_group.nhhotasvnetrg.location
   resource_group_name = azurerm_resource_group.nhhotasvnetrg.name
 
-    security_rule {
-    name                       = var.security-rule-name
-    priority                   = var.security-priority
-    direction                  = var.security-direction
-    access                     = var.security-access
-    protocol                   = var.security-protocol
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = var.vm-pip
-    destination_address_prefix = "*"
-  }
 }
 
 resource "azurerm_virtual_network" "nhhotasvnet" {
