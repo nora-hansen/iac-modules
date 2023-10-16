@@ -6,8 +6,6 @@ module "KeyVaultModule" {
   common_tags = local.common_tags
   # Secrets
   sa-access-key = module.StorageAccountModule.sa_access_key_output
-  vm-username   = var.vm-username
-  vm-password   = var.vm-password
 }
 
 module "NetworkModule" {
