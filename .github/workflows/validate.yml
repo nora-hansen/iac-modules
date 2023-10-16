@@ -1,0 +1,36 @@
+name: weekly_workspace
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+    paths:
+      - 'module07/weeklyass/**'
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    name: 'Validate'
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      VM_USERNAME: ${{ vars.VM_USERNAME }}
+      VM_PASSWORD: ${{ secrets.VM_PASSWORD }}
+      WORKING_DIR: ./module07/weeklyass
+      
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+        
+      - name: 'Terraform init'
+        id: init
+        run: terraform init
+        working-directory: ${{ env.WORKING_DIR }}
+
+      - name: 'Terraform Validate'
+        run: terraform validate
+        working-directory: ${{ env.WORKING_DIR }}
