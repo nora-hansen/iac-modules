@@ -44,13 +44,3 @@ variable "sa-access-key"    {
     type = string
     description = "Storage Account Access Key"
 }
-
-variable "vm-username"  {
-    type = string
-    description = "Virtual Machine username"
-}
-
-variable "vm-password"  {
-    type = string
-    description = "Virtual Machine password"
-}

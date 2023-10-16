@@ -34,19 +34,6 @@ variable "project" {
   description = "Project name"
 }
 
-//
-//  Key Vault Module Variables
-//
-variable "vm-username" {
-  type        = string
-  description = "Virtual Machine username"
-}
-
-variable "vm-password" {
-  type        = string
-  description = "Virtual Machine password"
-}
-
 #
 # Network variables
 #

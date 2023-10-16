@@ -48,20 +48,6 @@ resource "azurerm_key_vault" "nhhotaskv" {
   tags = var.common_tags
 }
 
-//
-//  Virtual Machine Credentials
-//
-resource "azurerm_key_vault_secret" "nhhotasvmusername" {
-  name         = "vm-username"
-  value        = var.vm-username
-  key_vault_id = azurerm_key_vault.nhhotaskv.id
-}
-
-resource "azurerm_key_vault_secret" "nhhotasvmpassword" {
-  name         = "vm-password"
-  value        = var.vm-password
-  key_vault_id = azurerm_key_vault.nhhotaskv.id
-}
 
 //
 //  Storage Account Access Key
