@@ -31,7 +31,6 @@ module "NetworkModule" {
   security-protocol  = var.security-protocol
 }
 
-# Hi
 module "StorageAccountModule" {
   source      = "./StorageAccountModule"
   base-name   = var.base-name
