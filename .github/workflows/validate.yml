@@ -1,4 +1,4 @@
-name: weekly_workspace
+name: validate
 
 on:
   push:
